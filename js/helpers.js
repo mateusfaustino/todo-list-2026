@@ -109,3 +109,21 @@ const getAllTasks = () => {
 
     return JSON.parse(storedTasks);
 };
+
+/**
+ * Busca uma tarefa específica no localStorage pelo seu ID.
+ *
+ * @param {string} id - O ID da tarefa no formato YYYYmmddHHmmss.
+ * @returns {Object|undefined} Retorna o objeto da tarefa encontrada ou undefined caso não exista.
+ */
+const getTaskById = (id) => {
+    const storedTasks = localStorage.getItem('tasks');
+
+    if (!storedTasks) {
+        return undefined;
+    }
+
+    const tasks = JSON.parse(storedTasks);
+
+    return tasks.find((task) => task.id === id);
+};
