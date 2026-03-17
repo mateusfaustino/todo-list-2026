@@ -127,3 +127,31 @@ const getTaskById = (id) => {
 
     return tasks.find((task) => task.id === id);
 };
+
+/**
+ * Atualiza uma tarefa específica no localStorage.
+ *
+ * @param {string} id - O ID da tarefa a ser atualizada.
+ * @param {Object} updates - Objeto contendo os campos e novos valores (ex: { status: 'done' }).
+ * @returns {Object|null} Retorna o objeto atualizado ou null se não encontrado.
+ */
+function updateTask(id, updates) {
+    const tasks = getAllTasks();
+
+    const taskIndex = tasks.findIndex((task) => task.id === id);
+
+    if (taskIndex === -1) {
+        return null;
+    }
+
+    const updatedTask = {
+        ...tasks[taskIndex],
+        ...updates
+    };
+
+    tasks[taskIndex] = updatedTask;
+
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
+    return updatedTask;
+}
