@@ -93,3 +93,19 @@ const saveTask = (description) => {
 
     return newTask;
 };
+
+/**
+ * Recupera todas as tarefas salvas no localStorage.
+ *
+ * @returns {Array<Object>} Retorna um array de objetos com as tarefas salvas.
+ * Caso não exista nenhuma tarefa armazenada, retorna um array vazio.
+ */
+const getAllTasks = () => {
+    const storedTasks = localStorage.getItem('tasks');
+
+    if (!storedTasks) {
+        return [];
+    }
+
+    return JSON.parse(storedTasks);
+};
