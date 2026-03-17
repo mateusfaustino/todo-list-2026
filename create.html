@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Tarefa</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+    <!-- Cabeçalho da tela de cadastro -->
+    <header class="page-header">
+        <div class="container header-content">
+            <div>
+                <p class="eyebrow">Cadastro de tarefas</p>
+                <h1>Nova Tarefa</h1>
+                <p class="page-description">
+                    Preencha o formulário abaixo para adicionar uma nova tarefa à sua lista.
+                </p>
+            </div>
+
+            <a
+                class="btn btn-secondary"
+                href="./index.html"
+                aria-label="Voltar para a lista de tarefas"
+            >
+                Voltar
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="form-section" aria-labelledby="form-title">
+            <div class="container">
+                <!-- Card central que abriga o formulário -->
+                <div class="form-wrapper">
+                    <div class="form-card">
+                        <div class="form-card-header">
+                            <p class="section-eyebrow">Formulário</p>
+                            <h2 id="form-title">Cadastrar tarefa</h2>
+                            <p class="form-description" id="form-instructions">
+                                Informe uma descrição objetiva para a tarefa.
+                                Campos marcados como obrigatórios devem ser preenchidos.
+                            </p>
+                        </div>
+
+                        <!-- 
+                            O atributo aria-describedby conecta o formulário
+                            a uma instrução adicional útil para leitores de tela.
+                        -->
+                        <form
+                            class="task-form"
+                            action="#"
+                            method="post"
+                            aria-describedby="form-instructions"
+                        >
+                            <!-- Fieldset ajuda a agrupar semanticamente os campos do formulário -->
+                            <fieldset class="form-fieldset">
+                                <legend class="sr-only">Dados da nova tarefa</legend>
+
+                                <div class="form-group">
+                                    <!-- 
+                                        Label explicitamente associada ao campo via for/id.
+                                        Isso melhora acessibilidade e usabilidade.
+                                    -->
+                                    <label for="task-desc" class="form-label">
+                                        Descrição da Tarefa <span aria-hidden="true">*</span>
+                                    </label>
+
+                                    <textarea
+                                        id="task-desc"
+                                        name="description"
+                                        class="form-control form-textarea"
+                                        rows="6"
+                                        required
+                                        minlength="3"
+                                        maxlength="200"
+                                        placeholder="Ex.: Estudar manipulação de DOM e eventos"
+                                        aria-describedby="task-desc-help"
+                                    ></textarea>
+
+                                    <p class="form-help" id="task-desc-help">
+                                        Escreva uma descrição clara e direta com no mínimo 3 caracteres.
+                                    </p>
+                                </div>
+                            </fieldset>
+
+                            <div class="form-actions" aria-label="Ações do formulário">
+                                <button type="submit" class="btn btn-primary">
+                                    Salvar Tarefa
+                                </button>
+
+                                <button type="reset" class="btn btn-light">
+                                    Limpar
+                                </button>
+
+                                <a
+                                    href="./index.html"
+                                    class="btn btn-danger-outline"
+                                    aria-label="Cancelar cadastro e voltar para a lista"
+                                >
+                                    Cancelar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
