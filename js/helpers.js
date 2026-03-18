@@ -155,3 +155,16 @@ function updateTask(id, updates) {
 
     return updatedTask;
 }
+
+/**
+ * Remove uma tarefa específica do localStorage pelo seu ID.
+ *
+ * @param {string} id - O ID da tarefa a ser removida no formato YYYYmmddHHmmss.
+ */
+function deleteTask(id) {
+    const tasks = getAllTasks();
+
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+}
